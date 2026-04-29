@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Satisfaction Score Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 6px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Student Satisfaction Score Calculator</h2>
+
+<label>
+    Number of Certificates of Completion Awarded
+    <input type="number" id="value1" step="any">
+</label>
+
+<label>
+    Average Intrinsic Value Score
+    <input type="number" id="value2" step="any">
+</label>
+
+<label>
+    Number of Industry‑Recognized Credentials Awarded
+    <input type="number" id="value3" step="any">
+</label>
+
+<label>
+    Number of State Certifications Awarded
+    <input type="number" id="value4" step="any">
+</label>
+
+<label>
+    Number of Credentials for Conversion to Credits Awarded
+    <input type="number" id="value5" step="any">
+</label>
+
+<label>
+    Number of Credentials for Conversion to RTI Awarded
+    <input type="number" id="value6" step="any">
+</label>
+
+<label>
+    Number of CEUs Awarded
+    <input type="number" id="value7" step="any">
+</label>
+
+<button onclick="calculate()">Calculate Total Score</button>
+
+<div class="result" id="result"></div>
+
+<script>
+function calculate() {
+    const v1 = Number(document.getElementById("value1").value) || 0;
+    const v2 = Number(document.getElementById("value2").value) || 0;
+    const v3 = Number(document.getElementById("value3").value) || 0;
+    const v4 = Number(document.getElementById("value4").value) || 0;
+    const v5 = Number(document.getElementById("value5").value) || 0;
+    const v6 = Number(document.getElementById("value6").value) || 0;
+    const v7 = Number(document.getElementById("value7").value) || 0;
+
+    const total =
+        v1 * 6.4 +
+        v2 * 5 +
+        v3 * 5 +
+        v4 * 3.4 +
+        v5 * 3 +
+        v6 * 2.8 +
+        v7 * 2.4;
+
+    const roundedTotal = Math.round(total);
+
+    document.getElementById("result").textContent =
+        "Total Student Satisfaction Score: " + roundedTotal;
+}
+</script>
+
+</body>
+</html>
